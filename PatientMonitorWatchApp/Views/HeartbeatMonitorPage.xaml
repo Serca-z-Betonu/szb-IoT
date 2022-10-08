@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage
+    x:Class="PatientMonitorWatchApp.Views.HeartbeatMonitorPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:res="clr-namespace:PatientMonitorWatchApp.Resources"
+    xmlns:viewModels="clr-namespace:PatientMonitorWatchApp.ViewModels">
+    <ContentPage.BindingContext>
+        <viewModels:HeartbeatMonitorViewModel/>
+    </ContentPage.BindingContext>
+
+    <ContentPage.Content>
+        <StackLayout Margin="0, 40, 0, 30" VerticalOptions="FillAndExpand">
+            <Image Source="HeartbeatMonitorSample.png" />
+            <Label
+                Text="{x:Static res:AppResources.HeartbeatMonitorPageTitle}"
+                HorizontalOptions="CenterAndExpand"/>
+            <Button
+                Text="{x:Static res:AppResources.HeartbeatMonitorPageMoveButtonText}"
+                HorizontalOptions="Center"
+                VerticalOptions="CenterAndExpand"
+                Command="{Binding ClickButtonCommand}"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

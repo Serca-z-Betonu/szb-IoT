@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31424.327
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PatientMonitorWatchApp", "PatientMonitorWatchApp\PatientMonitorWatchApp.csproj", "{387EE047-0505-443B-A672-F54D812DF29C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{387EE047-0505-443B-A672-F54D812DF29C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{387EE047-0505-443B-A672-F54D812DF29C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{387EE047-0505-443B-A672-F54D812DF29C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{387EE047-0505-443B-A672-F54D812DF29C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {58A5B63D-60E0-4423-A35E-0C303C8571F2}
+	EndGlobalSection
+EndGlobal
