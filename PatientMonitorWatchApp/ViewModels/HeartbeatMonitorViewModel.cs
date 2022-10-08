@@ -53,9 +53,11 @@ namespace PatientMonitorWatchApp.ViewModels
         }
         public void OnDataChanged(object sender, int args)
         {
+            if (args > 0) {
             HeartBeat = args;
             prompt = HeartBeat.ToString() + " " + "uderzeń/min";
             OnPropertyChanged(nameof(Prompt));
+            }
             
         }
 
