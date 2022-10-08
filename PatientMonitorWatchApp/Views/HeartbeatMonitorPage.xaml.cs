@@ -6,9 +6,13 @@ namespace PatientMonitorWatchApp.Views
 {
     public partial class HeartbeatMonitorPage : ContentPage
     {
+
+
         public HeartbeatMonitorPage()
         {
             InitializeComponent();
         }
+
+
     }
 }

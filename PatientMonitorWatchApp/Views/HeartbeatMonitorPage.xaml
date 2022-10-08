@@ -13,14 +13,16 @@
         <StackLayout Margin="0, 40, 0, 30" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
             <Image Source="HeartbeatMonitorSample.png" />
             <Label
+                x:Name="HB"
                 LineBreakMode="WordWrap"
-                Text="{x:Static res:AppResources.HeartbeatMonitorPageTitle}"
+                Text="{Binding Prompt}"
                 HorizontalOptions="CenterAndExpand"/>
             <Button
-                Text="{x:Static res:AppResources.HeartbeatMonitorPageMoveButtonText}"
+                Text="{Binding ReasumeButton}"
                 HorizontalOptions="Center"
                 VerticalOptions="CenterAndExpand"
-                Command="{Binding ClickButtonCommand}"/>
+                Command="{Binding ClickButtonCommand}"
+                BackgroundColor="#275e59"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
