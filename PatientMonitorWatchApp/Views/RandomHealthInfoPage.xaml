@@ -11,13 +11,10 @@
 
     <ContentPage.Content>
         <StackLayout>
-            <Label
-                Text="{x:Static res:AppResources.RandomHealthInfoPageTitle}"
-                VerticalOptions="EndAndExpand"
-                HorizontalOptions="CenterAndExpand"/>
+           
             <Button
                 Text="{x:Static res:AppResources.RandomHealthInfoPageShowButtonText}"
-                VerticalOptions="StartAndExpand"
+                VerticalOptions="CenterAndExpand"
                 HorizontalOptions="CenterAndExpand"
                 Command="{Binding ShowInformationPopupCommand}"/>
         </StackLayout>

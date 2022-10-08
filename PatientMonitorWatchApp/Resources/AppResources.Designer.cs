@@ -10,7 +10,8 @@
 
 namespace PatientMonitorWatchApp.Resources {
     using System;
-
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -22,15 +23,15 @@ namespace PatientMonitorWatchApp.Resources {
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class AppResources {
-
+        
         private static global::System.Resources.ResourceManager resourceMan;
-
+        
         private static global::System.Globalization.CultureInfo resourceCulture;
-
+        
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
         internal AppResources() {
         }
-
+        
         /// <summary>
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
@@ -44,7 +45,7 @@ namespace PatientMonitorWatchApp.Resources {
                 return resourceMan;
             }
         }
-
+        
         /// <summary>
         ///   Overrides the current thread's CurrentUICulture property for all
         ///   resource lookups using this strongly typed resource class.
@@ -58,16 +59,7 @@ namespace PatientMonitorWatchApp.Resources {
                 resourceCulture = value;
             }
         }
-
-        /// <summary>
-        ///   Looks up a localized string similar to PatientMonitorWatchApp.
-        /// </summary>
-        public static string AppDisplayName {
-            get {
-                return ResourceManager.GetString("AppDisplayName", resourceCulture);
-            }
-        }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to PatientMonitorWatchApp.
         /// </summary>
@@ -76,197 +68,184 @@ namespace PatientMonitorWatchApp.Resources {
                 return ResourceManager.GetString("AppDescription", resourceCulture);
             }
         }
-    
+        
         /// <summary>
-        ///   Looks up a localized string similar to can not register the event.
+        ///   Looks up a localized string similar to MonitorPacjenta.
         /// </summary>
-        public static string ExceptionEventNotRegister
-        {
-            get
-            {
+        public static string AppDisplayName {
+            get {
+                return ResourceManager.GetString("AppDisplayName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can not register the event..
+        /// </summary>
+        public static string ExceptionEventNotRegister {
+            get {
                 return ResourceManager.GetString("ExceptionEventNotRegister", resourceCulture);
             }
         }
-    
+        
         /// <summary>
-        ///   Looks up a localized string similar to can not unregister the event.
+        ///   Looks up a localized string similar to Can not unregister the event..
         /// </summary>
-        public static string ExceptionEventNotUnregister
-        {
-            get
-            {
+        public static string ExceptionEventNotUnregister {
+            get {
                 return ResourceManager.GetString("ExceptionEventNotUnregister", resourceCulture);
             }
         }
-    
-        /// <summary>
-        ///   Looks up a localized string similar to Move page.
-        /// </summary>
-        public static string HeartbeatMonitorPageMoveButtonText {
-            get {
-                return ResourceManager.GetString("HeartbeatMonitorPageMoveButtonText", resourceCulture);
-            }
-        }
-    
-        /// <summary>
-        ///   Looks up a localized string similar to HeartbeatMonitor.
-        /// </summary>
-        public static string HeartbeatMonitorPageTitle {
-            get {
-                return ResourceManager.GetString("HeartbeatMonitorPageTitle", resourceCulture);
-            }
-        }
-    
-        /// <summary>
-        ///   Looks up a localized string similar to Show Popup.
-        /// </summary>
-        public static string RandomHealthInfoPageShowButtonText {
-            get {
-                return ResourceManager.GetString("RandomHealthInfoPageShowButtonText", resourceCulture);
-            }
-        }
-    
-        /// <summary>
-        ///   Looks up a localized string similar to Information Popup.
-        /// </summary>
-        public static string RandomHealthInfoPagePopupText {
-            get {
-                return ResourceManager.GetString("RandomHealthInfoPagePopupText", resourceCulture);
-            }
-        }
-    
-        /// <summary>
-        ///   Looks up a localized string similar to Information OK.
-        /// </summary>
-        public static string RandomHealthInfoPageOkButtonText {
-            get {
-                return ResourceManager.GetString("RandomHealthInfoPageOkButtonText", resourceCulture);
-            }
-        }
-    
-        /// <summary>
-        ///   Looks up a localized string similar to RandomHealthInfo.
-        /// </summary>
-        public static string RandomHealthInfoPageTitle {
-            get {
-                return ResourceManager.GetString("RandomHealthInfoPageTitle", resourceCulture);
-            }
-        }
-    
-        /// <summary>
-        ///   Looks up a localized string similar to Bottom.
-        /// </summary>
-        public static string WorkoutPageBottomText
-        {
-            get
-            {
-                return ResourceManager.GetString("WorkoutPageBottomText", resourceCulture);
-            }
-        }
-    
-        /// <summary>
-        ///   Looks up a localized string similar to Bottom value.
-        /// </summary>
-        public static string WorkoutPageBottomValue
-        {
-            get
-            {
-                return ResourceManager.GetString("WorkoutPageBottomValue", resourceCulture);
-            }
-        }
-    
-        /// <summary>
-        ///   Looks up a localized string similar to Left.
-        /// </summary>
-        public static string WorkoutPageLeftText
-        {
-            get
-            {
-                return ResourceManager.GetString("WorkoutPageLeftText", resourceCulture);
-            }
-        }
-    
-        /// <summary>
-        ///   Looks up a localized string similar to Left unit.
-        /// </summary>
-        public static string WorkoutPageLeftUnit
-        {
-            get
-            {
-                return ResourceManager.GetString("WorkoutPageLeftUnit", resourceCulture);
-            }
-        }
-    
-        /// <summary>
-        ///   Looks up a localized string similar to Left value.
-        /// </summary>
-        public static string WorkoutPageLeftValue
-        {
-            get
-            {
-                return ResourceManager.GetString("WorkoutPageLeftValue", resourceCulture);
-            }
-        }
-    
-        /// <summary>
-        ///   Looks up a localized string similar to Right.
-        /// </summary>
-        public static string WorkoutPageRightText
-        {
-            get
-            {
-                return ResourceManager.GetString("WorkoutPageRightText", resourceCulture);
-            }
-        }
-    
-        /// <summary>
-        ///   Looks up a localized string similar to Right unit.
-        /// </summary>
-        public static string WorkoutPageRightUnit
-        {
-            get
-            {
-                return ResourceManager.GetString("WorkoutPageRightUnit", resourceCulture);
-            }
-        }
-    
-        /// <summary>
-        ///   Looks up a localized string similar to Right value.
-        /// </summary>
-        public static string WorkoutPageRightValue
-        {
-            get
-            {
-                return ResourceManager.GetString("WorkoutPageRightValue", resourceCulture);
-            }
-        }
-    
-        /// <summary>
-        ///   Looks up a localized string similar to Top.
-        /// </summary>
-        public static string WorkoutPageTopText
-        {
-            get
-            {
-                return ResourceManager.GetString("WorkoutPageTopText", resourceCulture);
-            }
-        }
-    
-        /// <summary>
-        ///   Looks up a localized string similar to Workout.
-        /// </summary>
-        public static string WorkoutPageTitle {
-            get {
-                return ResourceManager.GetString("WorkoutPageTitle", resourceCulture);
-            }
-        }
-    
+        
         /// <summary>
         ///   Looks up a localized string similar to Updating is already started.
         /// </summary>
         public static string ExceptionLocationServiceAlreadyStarted {
             get {
                 return ResourceManager.GetString("ExceptionLocationServiceAlreadyStarted", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rozpocznij Pomiar.
+        /// </summary>
+        public static string HeartbeatMonitorPageMoveButtonText {
+            get {
+                return ResourceManager.GetString("HeartbeatMonitorPageMoveButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Pomiar Rytmu Serca.
+        /// </summary>
+        public static string HeartbeatMonitorPageTitle {
+            get {
+                return ResourceManager.GetString("HeartbeatMonitorPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Ok.
+        /// </summary>
+        public static string RandomHealthInfoPageOkButtonText {
+            get {
+                return ResourceManager.GetString("RandomHealthInfoPageOkButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DUPA.
+        /// </summary>
+        public static string RandomHealthInfoPagePopupText {
+            get {
+                return ResourceManager.GetString("RandomHealthInfoPagePopupText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nowa Wskazówka.
+        /// </summary>
+        public static string RandomHealthInfoPageShowButtonText {
+            get {
+                return ResourceManager.GetString("RandomHealthInfoPageShowButtonText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Wskazówki.
+        /// </summary>
+        public static string RandomHealthInfoPageTitle {
+            get {
+                return ResourceManager.GetString("RandomHealthInfoPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Czas Trwania.
+        /// </summary>
+        public static string WorkoutPageBottomText {
+            get {
+                return ResourceManager.GetString("WorkoutPageBottomText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 00:38:11.
+        /// </summary>
+        public static string WorkoutPageBottomValue {
+            get {
+                return ResourceManager.GetString("WorkoutPageBottomValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dystans.
+        /// </summary>
+        public static string WorkoutPageLeftText {
+            get {
+                return ResourceManager.GetString("WorkoutPageLeftText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to km.
+        /// </summary>
+        public static string WorkoutPageLeftUnit {
+            get {
+                return ResourceManager.GetString("WorkoutPageLeftUnit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5,75.
+        /// </summary>
+        public static string WorkoutPageLeftValue {
+            get {
+                return ResourceManager.GetString("WorkoutPageLeftValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Rytm.
+        /// </summary>
+        public static string WorkoutPageRightText {
+            get {
+                return ResourceManager.GetString("WorkoutPageRightText", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to min/km.
+        /// </summary>
+        public static string WorkoutPageRightUnit {
+            get {
+                return ResourceManager.GetString("WorkoutPageRightUnit", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 6:38.
+        /// </summary>
+        public static string WorkoutPageRightValue {
+            get {
+                return ResourceManager.GetString("WorkoutPageRightValue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Aktywność.
+        /// </summary>
+        public static string WorkoutPageTitle {
+            get {
+                return ResourceManager.GetString("WorkoutPageTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bieg.
+        /// </summary>
+        public static string WorkoutPageTopText {
+            get {
+                return ResourceManager.GetString("WorkoutPageTopText", resourceCulture);
             }
         }
     }

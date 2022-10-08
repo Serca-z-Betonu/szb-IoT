@@ -10,9 +10,10 @@
     </ContentPage.BindingContext>
 
     <ContentPage.Content>
-        <StackLayout Margin="0, 40, 0, 30" VerticalOptions="FillAndExpand">
+        <StackLayout Margin="0, 40, 0, 30" VerticalOptions="FillAndExpand" HorizontalOptions="Center">
             <Image Source="HeartbeatMonitorSample.png" />
             <Label
+                LineBreakMode="WordWrap"
                 Text="{x:Static res:AppResources.HeartbeatMonitorPageTitle}"
                 HorizontalOptions="CenterAndExpand"/>
             <Button

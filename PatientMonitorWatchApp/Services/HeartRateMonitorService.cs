@@ -8,12 +8,14 @@ using Tizen.Sensor;
 
 namespace PatientMonitorWatchApp.Services
 {
-    // For more information about sensors see https://docs.tizen.org/application/dotnet/guides/location-sensors/device-sensors
     public class HeartRateMonitorService : IDisposable
     {
         private HeartRateMonitor _sensor;
 
         private bool _disposed = false;
+        public event EventHandler<int> SensorDataUpdated;
+        public event EventHandler SensorNotSupported;
+        public event EventHandler SensorNotAuthorized;
 
         /// <summary>
         /// Initializes the sensor
@@ -24,26 +26,18 @@ namespace PatientMonitorWatchApp.Services
         {
             try
             {
-                // A NotSupportedException will be thrown if the sensor is not available on the device
                 _sensor = new HeartRateMonitor();
-
-                // Add an event handler to the sensor
                 _sensor.DataUpdated += OnSensorDataUpdated;
-
-                // TODO: Declare how the sensor behaves when the screen turns off or the device goes into power save mode
-                // For details see https://docs.tizen.org/application/dotnet/guides/location-sensors/device-sensors
-                // _sensor.PausePolicy = SensorPausePolicy.All;
-
-                // TODO: Set the update interval in milliseconds
-                // _sensor.Interval = 1000;
+                _sensor.PausePolicy = SensorPausePolicy.None;
+                 _sensor.Interval = 1000;
             }
             catch (NotSupportedException)
             {
-                // TODO: The device does not support the sensor, handle exception as appropriate to your scenario
+                SensorNotSupported?.Invoke(this, EventArgs.Empty);
             }
             catch (UnauthorizedAccessException)
             {
-                // TODO: The user does not grant your app access to sensors, handle exception as appropriate to your scenario
+                SensorNotAuthorized?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -103,8 +97,7 @@ namespace PatientMonitorWatchApp.Services
         /// </summary>
         private void OnSensorDataUpdated(object sender, HeartRateMonitorDataUpdatedEventArgs e)
         {
-            // TODO: Handle sensor data
-            // More details at https://docs.tizen.org/application/dotnet/guides/location-sensors/device-sensors#heart-rate-monitor-sensor
+            SensorDataUpdated?.Invoke(this, e.HeartRate);
             Logger.Info($"Heart rate: {e.HeartRate}");
         }
     }
