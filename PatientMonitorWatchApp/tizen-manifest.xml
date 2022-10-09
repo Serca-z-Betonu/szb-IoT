@@ -6,7 +6,6 @@
         <icon>PatientMonitorWatchApp.png</icon>
         <metadata key="http://tizen.org/metadata/prefer_dotnet_aot" value="true" />
         <metadata key="accessory-services-location" value="/res/xml/accessoryservices.xml" />
-        <label xml:lang="pl-pl">Polski</label>
         <splash-screens>
             <splash-screen indicator-display="false" orientation="portrait" src="SplashScreen.png" type="img" />
         </splash-screens>
