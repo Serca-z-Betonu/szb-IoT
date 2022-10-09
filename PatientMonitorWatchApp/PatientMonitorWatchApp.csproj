@@ -26,8 +26,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.CodeAnalysis.FxCopAnalyzers" Version="2.9.8" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
     <PackageReference Include="Samsung.Sap" Version="1.0.0" />
     <PackageReference Include="Tizen.Wearable.CircularUI" Version="1.5.0" />
+    <PackageReference Include="WebSocketSharp" Version="1.0.3-rc11" />
     <PackageReference Include="Xam.Plugins.Vibrate" Version="4.0.0.5" />
     <PackageReference Include="Xamarin.Forms" Version="4.7.0.968" />
   </ItemGroup>

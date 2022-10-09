@@ -16,7 +16,8 @@
                 Text="{x:Static res:AppResources.RandomHealthInfoPageShowButtonText}"
                 VerticalOptions="CenterAndExpand"
                 HorizontalOptions="CenterAndExpand"
-                Command="{Binding ShowInformationPopupCommand}"/>
+                Command="{Binding ShowInformationPopupCommand}"
+                BackgroundColor="#275e59"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>

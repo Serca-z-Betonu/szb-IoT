@@ -133,7 +133,7 @@ namespace PatientMonitorWatchApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DUPA.
+        ///   Looks up a localized string similar to .
         /// </summary>
         public static string RandomHealthInfoPagePopupText {
             get {
@@ -205,7 +205,7 @@ namespace PatientMonitorWatchApp.Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Rytm.
+        ///   Looks up a localized string similar to Tempo.
         /// </summary>
         public static string WorkoutPageRightText {
             get {

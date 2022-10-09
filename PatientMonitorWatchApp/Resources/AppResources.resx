@@ -139,7 +139,7 @@
     <value>Nowa Wskazówka</value>
   </data>
   <data name="RandomHealthInfoPagePopupText" xml:space="preserve">
-    <value>DUPA</value>
+    <value />
   </data>
   <data name="RandomHealthInfoPageOkButtonText" xml:space="preserve">
     <value>Ok</value>
@@ -160,7 +160,7 @@
     <value>km</value>
   </data>
   <data name="WorkoutPageRightText" xml:space="preserve">
-    <value>Rytm</value>
+    <value>Tempo</value>
   </data>
   <data name="WorkoutPageRightValue" xml:space="preserve">
     <value>6:38</value>

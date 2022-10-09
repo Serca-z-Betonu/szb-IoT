@@ -5,6 +5,9 @@ using PatientMonitorWatchApp.Mvvm;
 using Xamarin.Forms;
 using System.Collections.Generic;
 using Tizen.System;
+using Tizen.Applications;
+using Tizen.Applications.Notifications;
+
 namespace PatientMonitorWatchApp.ViewModels
 {
     public class HeartbeatMonitorViewModel : BaseViewModel
@@ -13,7 +16,7 @@ namespace PatientMonitorWatchApp.ViewModels
         public event EventHandler OnButtonClicked;
         //public event EventHandler<int> OnDataReceived;
         Services.HeartRateMonitorService HRM;
-        // Services.NetworkAccessService Network = new Services.NetworkAccessService();
+         Services.NetworkAccessService Network = new Services.NetworkAccessService();
         private bool isUsed = true;
         private bool isDisposed = true;
         int HeartBeat;
@@ -42,44 +45,46 @@ namespace PatientMonitorWatchApp.ViewModels
         private void ClickButton()
         {
             isUsed = !isUsed;
+                Feedback feedback = new Feedback();
             if (isUsed)
             {
-
                 prompt = "Pomiar zakończono.";
                 reasumeButton = "Rozpocznij Pomiar";
                 HRM.SensorDataUpdated -= OnDataChanged;
                 HRM.Stop();
-                // SendData(results);
+                SendData(results);
                 results.Clear();
                 manageHRM();
             } else
             {
+                //feedback.Play(FeedbackType.Sound, "Message");
                 manageHRM();
                 prompt = "...";
                 reasumeButton = "Zakończ Pomiar";
                 HRM.SensorDataUpdated += OnDataChanged;
                 HRM.Start();
             }
+                feedback.Play(FeedbackType.Vibration, "SoftInputPanel");
             OnPropertyChanged(nameof(Prompt));
             OnPropertyChanged(nameof(ReasumeButton));
-            OnButtonClicked?.Invoke(null, EventArgs.Empty);
+            //OnButtonClicked?.Invoke(null, EventArgs.Empty);
         }
         public void OnDataChanged(object sender, int args)
         {
             if (args > 0) {
             HeartBeat = args;
              results.Add(DateTime.Now.ToString("h:mm:ss tt"), HeartBeat.ToString());
-            // results.Add("dupa", "dupa");
             prompt = HeartBeat.ToString() + " " + "uderzeń/min";
             OnPropertyChanged(nameof(Prompt));
             }
             
         }
 
-        // public async void SendData(Dictionary<string, string> results) {
-        //     await Network.PostData(results);
-            // await Network.SendWebRequestSampleAsync();
-        // }
+        public void SendData(Dictionary<string, string> results)
+        {
+            Network.PostData(results);
+            //await Network.SendWebRequestSampleAsync();
+        }
 
         private string prompt;
         private string reasumeButton = "Rozpocznij Pomiar";

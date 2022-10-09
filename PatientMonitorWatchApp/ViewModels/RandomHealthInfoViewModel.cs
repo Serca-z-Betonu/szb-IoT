@@ -51,11 +51,14 @@ namespace PatientMonitorWatchApp.ViewModels
             var informationPopup = new InformationPopup()
             {
                 Text = GetRandomHealthMessage(),
-                IsProgressRunning = false
+                IsProgressRunning = false,
             };
 
             informationPopup.BackButtonPressed += (s, e) =>
             {
+                Feedback feedback = new Feedback();
+                feedback.Play(FeedbackType.Vibration, "Message");
+                feedback.Play(FeedbackType.Sound, "Message");
                 informationPopup.Dismiss();
                 informationPopup = null;
             };
@@ -65,8 +68,11 @@ namespace PatientMonitorWatchApp.ViewModels
                 Text = AppResources.RandomHealthInfoPageOkButtonText,
                 Command = new Command(() =>
                 {
+                    Feedback feedback = new Feedback();
                     informationPopup?.Dismiss();
                     informationPopup = null;
+                    feedback.Play(FeedbackType.Vibration, "Message");
+                    feedback.Play(FeedbackType.Sound, "Message");
                 })
             };
 

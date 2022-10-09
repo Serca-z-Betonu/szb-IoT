@@ -9,7 +9,8 @@
     xmlns="http://xamarin.com/schemas/2014/forms"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:res="clr-namespace:PatientMonitorWatchApp.Resources"
-    xmlns:views="clr-namespace:PatientMonitorWatchApp.Views">
+    xmlns:views="clr-namespace:PatientMonitorWatchApp.Views"
+    BackgroundColor="#275e59">
     <FlyoutItem Route="HeartbeatMonitor" Title="{x:Static res:AppResources.HeartbeatMonitorPageTitle}">
         <ShellSection>
             <ShellContent ContentTemplate="{DataTemplate views:HeartbeatMonitorPage}"/>

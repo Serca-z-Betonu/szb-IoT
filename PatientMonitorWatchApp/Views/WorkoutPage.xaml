@@ -29,9 +29,11 @@
             <Label
                 Grid.ColumnSpan="2"
                 Text="{x:Static res:AppResources.WorkoutPageTopText}"
-                TextColor="DeepSkyBlue"
+                TextColor="#64d5bf"
                 HorizontalOptions="Center"
-                VerticalOptions="Center" />
+                VerticalOptions="Center"
+                FontSize="Large"
+                FontAttributes="Bold"/>
             <BoxView
                 Grid.Row="1"
                 Color="Black" />
