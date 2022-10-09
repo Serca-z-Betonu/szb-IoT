@@ -17,7 +17,7 @@ namespace PatientMonitorWatchApp.ViewModels
         private bool isUsed = true;
         private bool isDisposed = true;
         int HeartBeat;
-        Dictionary<string, string> results;
+        Dictionary<string, string> results = new Dictionary<string, string>();
         public HeartbeatMonitorViewModel()
         {
             ClickButtonCommand = new Command(() => ClickButton());
@@ -48,7 +48,6 @@ namespace PatientMonitorWatchApp.ViewModels
                 HRM.Stop();
                 // SendData(results);
                 results.Clear();
-                //HRM.Dispose();
                 manageHRM();
             } else
             {
@@ -66,7 +65,7 @@ namespace PatientMonitorWatchApp.ViewModels
         {
             if (args > 0) {
             HeartBeat = args;
-            // results.Add(DateTime.Now.ToString("h:mm:ss tt"), HeartBeat.ToString());
+             results.Add(DateTime.Now.ToString("h:mm:ss tt"), HeartBeat.ToString());
             // results.Add("dupa", "dupa");
             prompt = HeartBeat.ToString() + " " + "uderzeń/min";
             OnPropertyChanged(nameof(Prompt));
