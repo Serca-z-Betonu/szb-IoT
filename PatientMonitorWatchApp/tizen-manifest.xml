@@ -1,38 +1,25 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<manifest
-    package="com.example.PatientMonitorWatchApp"
-    version="1.0.0"
-    api-version="4"
-    xmlns="http://tizen.org/ns/packages">
+<manifest package="com.example.PatientMonitorWatchApp" version="1.0.0" api-version="4" xmlns="http://tizen.org/ns/packages">
     <profile name="wearable" />
-    <ui-application
-        appid="com.example.PatientMonitorWatchApp"
-        exec="PatientMonitorWatchApp.dll"
-        multiple="false"
-        nodisplay="false"
-        taskmanage="true"
-        type="dotnet"
-        launch_mode="single">
+    <ui-application appid="com.example.PatientMonitorWatchApp" exec="PatientMonitorWatchApp.dll" multiple="false" nodisplay="false" taskmanage="true" type="dotnet" launch_mode="single">
         <label>PatientMonitorWatchApp</label>
         <icon>PatientMonitorWatchApp.png</icon>
-        <metadata
-            key="http://tizen.org/metadata/prefer_dotnet_aot"
-            value="true" />
+        <metadata key="http://tizen.org/metadata/prefer_dotnet_aot" value="true" />
+        <metadata key="accessory-services-location" value="/res/xml/accessoryservices.xml" />
+        <label xml:lang="pl-pl">Polski</label>
         <splash-screens>
-          <splash-screen indicator-display="false" orientation="portrait" src="SplashScreen.png" type="img" />
+            <splash-screen indicator-display="false" orientation="portrait" src="SplashScreen.png" type="img" />
         </splash-screens>
-        <metadata
-            key="accessory-services-location"
-            value="/res/xml/accessoryservices.xml" />
     </ui-application>
+    <shortcut-list />
     <privileges>
         <privilege>http://tizen.org/privilege/location</privilege>
         <privilege>http://tizen.org/privilege/internet</privilege>
         <privilege>http://tizen.org/privilege/network.get</privilege>
         <privilege>http://developer.samsung.com/tizen/privilege/accessoryprotocol</privilege>
         <privilege>http://tizen.org/privilege/healthinfo</privilege>
+        <privilege>http://tizen.org/privilege/haptic</privilege>
     </privileges>
-    <shortcut-list />
     <dependencies />
     <provides-appdefined-privileges />
 </manifest>

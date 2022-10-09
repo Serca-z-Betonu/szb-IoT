@@ -4,16 +4,16 @@ using System.Windows.Input;
 using PatientMonitorWatchApp.Mvvm;
 using Xamarin.Forms;
 using System.Collections.Generic;
-
+using Tizen.System;
 namespace PatientMonitorWatchApp.ViewModels
 {
     public class HeartbeatMonitorViewModel : BaseViewModel
     {
-
+        private Feedback feedback = new Feedback();
         public event EventHandler OnButtonClicked;
-        public event EventHandler<int> OnDataReceived;
+        //public event EventHandler<int> OnDataReceived;
         Services.HeartRateMonitorService HRM;
-        Services.NetworkAccessService Network = new Services.NetworkAccessService();
+        private Services.NetworkAccessService Network = new Services.NetworkAccessService();
         private bool isUsed = true;
         private bool isDisposed = true;
         int HeartBeat;
@@ -21,6 +21,8 @@ namespace PatientMonitorWatchApp.ViewModels
         public HeartbeatMonitorViewModel()
         {
             ClickButtonCommand = new Command(() => ClickButton());
+            feedback.Play(FeedbackType.All, pattern: "TAP");
+
         }
 
         private void manageHRM() 
@@ -42,17 +44,19 @@ namespace PatientMonitorWatchApp.ViewModels
             isUsed = !isUsed;
             if (isUsed)
             {
+
                 prompt = "Pomiar zakończono.";
                 reasumeButton = "Rozpocznij Pomiar";
                 HRM.SensorDataUpdated -= OnDataChanged;
                 HRM.Stop();
-                 //SendData(results);
+                // SendData(results); // hostname URI invalid error -> revrite it to sockets
                 results.Clear();
                 manageHRM();
             } else
             {
                 manageHRM();
-                prompt = "";
+                //prompt = "...";
+                prompt = feedback.IsSupportedPattern(FeedbackType.All, "TAP").ToString();
                 reasumeButton = "Zakończ Pomiar";
                 HRM.SensorDataUpdated += OnDataChanged;
                 HRM.Start();
@@ -66,15 +70,13 @@ namespace PatientMonitorWatchApp.ViewModels
             if (args > 0) {
             HeartBeat = args;
              results.Add(DateTime.Now.ToString("h:mm:ss tt"), HeartBeat.ToString());
-            // results.Add("dupa", "dupa");
             prompt = HeartBeat.ToString() + " " + "uderzeń/min";
             OnPropertyChanged(nameof(Prompt));
             }
             
         }
 
-        public async void SendData(Dictionary<string, string> results)
-        {
+        public async void SendData(Dictionary<string, string> results) {
             await Network.PostData(results);
             await Network.SendWebRequestSampleAsync();
         }

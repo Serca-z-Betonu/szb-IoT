@@ -4,7 +4,7 @@ using System.Windows.Input;
 
 using PatientMonitorWatchApp.Mvvm;
 using PatientMonitorWatchApp.Resources;
-
+using Tizen.System;
 using Tizen.Wearable.CircularUI.Forms;
 
 using Xamarin.Forms;
