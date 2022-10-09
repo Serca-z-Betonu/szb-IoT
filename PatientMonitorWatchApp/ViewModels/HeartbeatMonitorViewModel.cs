@@ -13,7 +13,7 @@ namespace PatientMonitorWatchApp.ViewModels
         public event EventHandler OnButtonClicked;
         public event EventHandler<int> OnDataReceived;
         Services.HeartRateMonitorService HRM;
-        // Services.NetworkAccessService Network = new Services.NetworkAccessService();
+        Services.NetworkAccessService Network = new Services.NetworkAccessService();
         private bool isUsed = true;
         private bool isDisposed = true;
         int HeartBeat;
@@ -46,13 +46,13 @@ namespace PatientMonitorWatchApp.ViewModels
                 reasumeButton = "Rozpocznij Pomiar";
                 HRM.SensorDataUpdated -= OnDataChanged;
                 HRM.Stop();
-                // SendData(results);
+                // SendData(results); // hostname URI invalid error -> revrite it to sockets
                 results.Clear();
                 manageHRM();
             } else
             {
                 manageHRM();
-                prompt = "";
+                prompt = "...";
                 reasumeButton = "Zakończ Pomiar";
                 HRM.SensorDataUpdated += OnDataChanged;
                 HRM.Start();
@@ -66,17 +66,16 @@ namespace PatientMonitorWatchApp.ViewModels
             if (args > 0) {
             HeartBeat = args;
              results.Add(DateTime.Now.ToString("h:mm:ss tt"), HeartBeat.ToString());
-            // results.Add("dupa", "dupa");
             prompt = HeartBeat.ToString() + " " + "uderzeń/min";
             OnPropertyChanged(nameof(Prompt));
             }
             
         }
 
-        // public async void SendData(Dictionary<string, string> results) {
-        //     await Network.PostData(results);
-            // await Network.SendWebRequestSampleAsync();
-        // }
+        public async void SendData(Dictionary<string, string> results) {
+            await Network.PostData(results);
+            await Network.SendWebRequestSampleAsync();
+        }
 
         private string prompt;
         private string reasumeButton = "Rozpocznij Pomiar";
