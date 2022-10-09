@@ -2,8 +2,8 @@
 using System.Windows.Input;
 
 using PatientMonitorWatchApp.Mvvm;
-using Tizen.Sensor;
 using Xamarin.Forms;
+using System.Collections.Generic;
 
 namespace PatientMonitorWatchApp.ViewModels
 {
@@ -12,12 +12,26 @@ namespace PatientMonitorWatchApp.ViewModels
 
         public event EventHandler OnButtonClicked;
         public event EventHandler<int> OnDataReceived;
-        Services.HeartRateMonitorService HRM = new Services.HeartRateMonitorService();
+        Services.HeartRateMonitorService HRM;
+        // Services.NetworkAccessService Network = new Services.NetworkAccessService();
         private bool isUsed = true;
+        private bool isDisposed = true;
         int HeartBeat;
+        Dictionary<string, string> results;
         public HeartbeatMonitorViewModel()
         {
             ClickButtonCommand = new Command(() => ClickButton());
+        }
+
+        private void manageHRM() 
+        {
+            if(isDisposed) {
+                HRM = new Services.HeartRateMonitorService();
+                isDisposed = false;
+            } else {
+                HRM.Dispose();
+                isDisposed = true;
+            }
         }
 
         public ICommand ClickButtonCommand { get; private set; }
@@ -32,9 +46,13 @@ namespace PatientMonitorWatchApp.ViewModels
                 reasumeButton = "Rozpocznij Pomiar";
                 HRM.SensorDataUpdated -= OnDataChanged;
                 HRM.Stop();
+                // SendData(results);
+                results.Clear();
                 //HRM.Dispose();
+                manageHRM();
             } else
             {
+                manageHRM();
                 prompt = "";
                 reasumeButton = "Zakończ Pomiar";
                 HRM.SensorDataUpdated += OnDataChanged;
@@ -42,24 +60,24 @@ namespace PatientMonitorWatchApp.ViewModels
             }
             OnPropertyChanged(nameof(Prompt));
             OnPropertyChanged(nameof(ReasumeButton));
-            // TODO: Insert code to handle the button clicked.
-            //
-            // To perform page navigation, use the GoToAsync method in Xamarin.Forms Shell API.
-            // await Shell.Current.GoToAsync("newpage");
-            //
-            // For more details, see https://docs.microsoft.com/ko-kr/xamarin/xamarin-forms/app-fundamentals/shell/navigation
-            //Services.Logger.Info($"Heart rate: Hello there");
             OnButtonClicked?.Invoke(null, EventArgs.Empty);
         }
         public void OnDataChanged(object sender, int args)
         {
             if (args > 0) {
             HeartBeat = args;
+            // results.Add(DateTime.Now.ToString("h:mm:ss tt"), HeartBeat.ToString());
+            // results.Add("dupa", "dupa");
             prompt = HeartBeat.ToString() + " " + "uderzeń/min";
             OnPropertyChanged(nameof(Prompt));
             }
             
         }
+
+        // public async void SendData(Dictionary<string, string> results) {
+        //     await Network.PostData(results);
+            // await Network.SendWebRequestSampleAsync();
+        // }
 
         private string prompt;
         private string reasumeButton = "Rozpocznij Pomiar";

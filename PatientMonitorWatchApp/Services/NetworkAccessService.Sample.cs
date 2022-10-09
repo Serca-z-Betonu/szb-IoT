@@ -42,7 +42,7 @@ namespace PatientMonitorWatchApp.Services
                 }
 
                 client = new HttpClient(handler);
-                var response = await client.GetStringAsync(new Uri("https://api.github.com/orgs/dotnet/repos"));
+                var response = await client.GetStringAsync(new Uri("http://192.168.0.23:8000/"));
 
                 // TODO: Insert code to process the response from a web server
                 Logger.Info($"response: {response}");
@@ -52,6 +52,49 @@ namespace PatientMonitorWatchApp.Services
                 client?.Dispose();
                 handler?.Dispose();
             }
+        }
+
+        public async Task PostData(Dictionary<string, string> data)
+        {
+            var content = new FormUrlEncodedContent(data);
+             
+            ConnectionItem connection = ConnectionManager.CurrentConnection;
+
+            if (connection.Type == ConnectionType.Disconnected)
+            {
+                // TODO: There is no available connectivity as now
+                return;
+            }
+
+            HttpClientHandler handler = null;
+            HttpClient client = null;
+
+            try
+            {
+                handler = new HttpClientHandler();
+
+                // When a watch has a Bluetooth connection to a phone, a proxy to access the internet through the phone is served by default
+                if (connection.Type == ConnectionType.Ethernet)
+                {
+                    var proxy = ConnectionManager.GetProxy(AddressFamily.IPv4);
+                    handler.Proxy = new WebProxy(proxy, true);
+                }
+
+                client = new HttpClient(handler);
+
+                var response = await client.PostAsync("http://192.168.0.23:8000/", content);
+                // TODO: Insert code to process the response from a web server
+                Logger.Info($"response: {response}");
+                var responseString = await response.Content.ReadAsStringAsync();
+            }
+            finally
+            {
+                client?.Dispose();
+                handler?.Dispose();
+            }
+
+
+
         }
     }
 }
