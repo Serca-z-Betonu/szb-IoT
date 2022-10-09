@@ -73,7 +73,7 @@ namespace PatientMonitorWatchApp.ViewModels
         {
             if (args > 0) {
             HeartBeat = args;
-             results.Add(DateTime.Now.ToString("h:mm:ss tt"), HeartBeat.ToString());
+             results.Add(DateTime.Now.ToUniversalTime().ToString("o"), HeartBeat.ToString());
             prompt = HeartBeat.ToString() + " " + "uderzeń/min";
             OnPropertyChanged(nameof(Prompt));
             }
